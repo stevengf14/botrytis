@@ -1,5 +1,0 @@
-export const START_VIDEO = "Start Video"
-export const STOP_VIDEO = "Stop Video"
-export const SELECT_TITLE = "Select an object:"
-export const BOTRYTIS_DETECTION_TITLE = "Botrytis Detection"
-export const HOME_TITLE = "Home"

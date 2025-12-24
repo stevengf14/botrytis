@@ -1,4 +1,12 @@
-Botrytis Detection — Minimal repo
+Botrytis Detection
+
+Integrantes:
+• Bryan Steven Vinueza Bustamante
+• Carlos Eduardo Vaca Cano
+• Erick Stuart Almeida Chávez
+• Jonathan Santiago Almeida Salas
+• Steven Andrés Guamán Figueroa
+
 =================================
 
 Este repositorio contiene lo mínimo necesario para ejecutar la API de
@@ -19,7 +27,7 @@ Quick start (resumen)
 1. Backend (PowerShell):
 
 ```powershell
-cd 'C:\Steven\UIDE\Materias\Titulación\botrytis_project\backend'
+cd ..\backend'
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -29,7 +37,7 @@ python -m uvicorn app.main:app --reload --port 5002
 2. Frontend (PowerShell) — si trabajas en el subproyecto `frontend`:
 
 ```powershell
-cd 'C:\Steven\UIDE\Materias\Titulación\botrytis_project\frontend'
+cd '..\frontend'
 npm install
 npm start
 ```
@@ -37,7 +45,7 @@ npm start
 3. Prueba rápida (opcional):
 
 ```powershell
-cd 'C:\Steven\UIDE\Materias\Titulación\botrytis_project\backend'
+cd '..\backend'
 python test_api.py --api-url http://localhost:5002
 ```
 

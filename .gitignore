@@ -21,11 +21,11 @@ wheels/
 *.egg
 
 # Virtual environments
-.venv/
+backend/.venv/
 venv/
 ENV/
 env/
-.venv
+backend/.venv
 
 # IDE
 .vscode/
@@ -58,3 +58,5 @@ Thumbs.db
 # Ambiente
 .env
 .env.local
+
+node_modules/
