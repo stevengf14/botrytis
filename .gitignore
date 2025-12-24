@@ -40,6 +40,7 @@ data/
 *.jpeg
 *.png
 *.gif
+*.zip
 
 # Modelos entrenados (muy pesados, considerar usar Git LFS)
 *.pth
@@ -58,5 +59,3 @@ Thumbs.db
 # Ambiente
 .env
 .env.local
-
-node_modules/

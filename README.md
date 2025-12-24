@@ -15,7 +15,6 @@ detección de Botrytis y la integración con el componente frontend.
 Conservado:
 - `backend/` — FastAPI app en `backend/app` con `main.py` y `model.py`.
 - `frontend/` — documentación y el servicio JS para integrar en la UI.
-- `QUICK_START.md` — guía paso-a-paso para levantar backend y frontend.
 - `.gitignore` — reglas para no subir datos/weights.
 
 Quitado: documentación duplicada y metadatos de IDE para mantener el

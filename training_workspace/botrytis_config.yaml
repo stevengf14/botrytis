@@ -1,0 +1,6 @@
+path: ./datasets/botrytis_dataset  # Ruta raiz
+train: images/train
+val: images/val
+
+nc: 3  # Número de clases
+names: ['healthy_rose', 'early_botrytis', 'advanced_botrytis']
