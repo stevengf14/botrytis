@@ -1,11 +1,12 @@
 Botrytis Detection
 
 Integrantes:
-• Bryan Steven Vinueza Bustamante
-• Carlos Eduardo Vaca Cano
-• Erick Stuart Almeida Chávez
-• Jonathan Santiago Almeida Salas
-• Steven Andrés Guamán Figueroa
+
+<li> Jonathan Santiago Almeida Salas</li>
+<li> Steven Andrés Guamán Figueroa</li>
+<li> Bryan Steven Vinueza Bustamante</li>
+<li> Carlos Eduardo Vaca Cano</li>
+<li> Erick Stuart Almeida Chávez</li>
 
 =================================
 
