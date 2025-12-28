@@ -23,31 +23,31 @@ Quitado: documentación duplicada y metadatos de IDE para mantener el
 repositorio limpio. Si necesitas los documentos originales, están
 consolidados en `QUICK_START.md`.
 
-Quick start (resumen)
+Quick start (summary)
 ---------------------
-1. Backend (PowerShell):
+1) Backend (PowerShell):
 
 ```powershell
-cd ..\backend'
+cd backend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python -m uvicorn app.main:app --reload --port 5002
+cd app
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-2. Frontend (PowerShell) — si trabajas en el subproyecto `frontend`:
+2) Frontend (PowerShell):
 
 ```powershell
-cd '..\frontend'
+cd frontend
 npm install
 npm start
 ```
 
-3. Prueba rápida (opcional):
+3) Quick test (optional):
 
 ```powershell
-cd '..\backend'
-python test_api.py --api-url http://localhost:5002
+curl -F "file=@C:\path\to\image.jpg" http://localhost:8000/analyze
 ```
 
 Contacto

@@ -22,7 +22,6 @@ const BotrytisHome = () => {
       </figure>
     </div>
   );
-  console.log(t("home.title"));
 
   return (
     <section
