@@ -1,7 +1,7 @@
 Botrytis Detection
 ---------------------
 
-Integrantes:
+Team Members:
 
 <li> Jonathan Santiago Almeida Salas</li>
 <li> Steven Andrés Guamán Figueroa</li>
@@ -11,17 +11,7 @@ Integrantes:
 
 =================================
 
-Este repositorio contiene lo mínimo necesario para ejecutar la API de
-detección de Botrytis y la integración con el componente frontend.
-
-Conservado:
-- `backend/` — FastAPI app en `backend/app` con `main.py` y `model.py`.
-- `frontend/` — documentación y el servicio JS para integrar en la UI.
-- `.gitignore` — reglas para no subir datos/weights.
-
-Quitado: documentación duplicada y metadatos de IDE para mantener el
-repositorio limpio. Si necesitas los documentos originales, están
-consolidados en `QUICK_START.md`.
+This repository contains the minimum requirements to run the Botrytis detection API and its integration with the frontend component.
 
 Quick start (summary)
 ---------------------
@@ -34,19 +24,3 @@ python -m venv .venv
 pip install -r requirements.txt
 cd app
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-2) Frontend (PowerShell):
-
-```powershell
-cd frontend
-npm install
-npm start
-```
-
-3) Quick test (optional):
-
-```powershell
-curl -F "file=@C:\path\to\image.jpg" http://localhost:8000/analyze
-```
-
