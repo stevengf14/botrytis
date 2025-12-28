@@ -7,7 +7,7 @@ const BotrytisInformation = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   const mobileCompensatedPadding = isMobile ? "6.25rem" : "5rem";
-  const [activeTab, setActiveTab] = useState("que-es");
+  const [activeTab, setActiveTab] = useState("what-is");
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const botrytisGreen = "#2ecc71";
@@ -219,7 +219,7 @@ const BotrytisInformation = () => {
           <a
             className="button is-medium is-info is-rounded has-text-weight-bold is-light"
             href="/botrytis-detection"
-            aria-label="Comenzar Análisis Ahora"
+            aria-label="Start Analysis Now"
           >
             <span className="icon is-medium">
               <i className="fa-solid fa-cloud-arrow-up"></i>
@@ -232,7 +232,7 @@ const BotrytisInformation = () => {
           <a
             className="button is-text has-text-weight-semibold mt-3"
             href="/"
-            aria-label="Enlace a la información del proyecto"
+            aria-label="Link to project information"
             style={{ color: botrytisGreen }}
           >
             <span className="icon">

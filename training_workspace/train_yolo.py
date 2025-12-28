@@ -6,7 +6,7 @@ from ultralytics import YOLO
 
 def repair_dataset_and_create_yaml(base_dir):
     """
-    Verifica estructura del dataset, crea validación si falta y genera data.yaml.
+    Verify dataset structure, create validation split if missing, and generate data.yaml.
     """
     # Check dataset structure
     
@@ -15,11 +15,11 @@ def repair_dataset_and_create_yaml(base_dir):
     val_img_dir = os.path.join(base_dir, 'valid', 'images')
     val_lbl_dir = os.path.join(base_dir, 'valid', 'labels')
 
-    # 1. Verificar existencia de carpeta de entrenamiento
+    # 1. Verify existence of training folder
     if not os.path.exists(train_img_dir):
-        raise FileNotFoundError(f"No encuentro la carpeta de entrenamiento en: {train_img_dir}")
+        raise FileNotFoundError(f"Training images folder not found: {train_img_dir}")
 
-    # 2. Verificar o Crear carpeta de Validación (Auto-Split 20%)
+    # 2. Verify or create validation folder (auto-split 20%)
     if not os.path.exists(val_img_dir) or len(os.listdir(val_img_dir)) == 0:
         print("Creating validation set (20% of train)...")
         os.makedirs(val_img_dir, exist_ok=True)
@@ -33,12 +33,12 @@ def repair_dataset_and_create_yaml(base_dir):
             to_move = random.sample(images, num_to_move)
 
             for img_name in to_move:
-                # Mover Imagen
+                # Move image
                 src_img = os.path.join(train_img_dir, img_name)
                 dst_img = os.path.join(val_img_dir, img_name)
                 shutil.move(src_img, dst_img)
 
-                # Mover Label
+                # Move label
                 lbl_name = os.path.splitext(img_name)[0] + '.txt'
                 src_lbl = os.path.join(train_lbl_dir, lbl_name)
                 dst_lbl = os.path.join(val_lbl_dir, lbl_name)
@@ -49,8 +49,7 @@ def repair_dataset_and_create_yaml(base_dir):
         else:
             print("Warning: Not enough images to create validation.")
 
-    # 3. Generar data.yaml actualizado
-    # AQUI EL CAMBIO: Usamos 'uninfected_rose'
+    # 3. Generate updated data.yaml
     yaml_content = {
         'path': base_dir.replace('\\', '/'),
         'train': 'train/images',
@@ -67,7 +66,7 @@ def repair_dataset_and_create_yaml(base_dir):
     return yaml_path
 
 def main():
-    # Definir rutas
+    # Define paths
     current_dir = os.path.dirname(os.path.abspath(__file__))
     dataset_dir = os.path.join(current_dir, 'dataset')
 
@@ -77,7 +76,7 @@ def main():
         print(f"Critical error preparing dataset: {e}")
         return
 
-    # Cargar y Entrenar
+    # Load and train
     print("Loading YOLOv8 Medium model...")
     model = YOLO('yolov8m.pt') 
 
@@ -88,12 +87,12 @@ def main():
         imgsz=512,
         patience=20,
         batch=8,
-        name='modelo_rosas_local',
+        name='rose_model_local',
         augment=True,
         project='runs/detect'
     )
 
-    # Validar
+    # Validate
     print("Validating final model...")
     metrics = model.val()
     print(f"Training finished. mAP50: {metrics.box.map50}")

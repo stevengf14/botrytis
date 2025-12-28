@@ -35,7 +35,7 @@ async def analyze(file: UploadFile = File(...)):
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid image file")
 
-    # Inferencia (conf=0.4 para filtrar detecciones de baja certeza)
+    # Inference (conf=0.4 to filter low-confidence detections)
     results = model.predict(pil_img, conf=0.4)
     result = results[0]
 

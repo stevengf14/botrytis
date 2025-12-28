@@ -1,6 +1,6 @@
-path: ./datasets/botrytis_dataset  # Ruta raiz
+path: ./datasets/botrytis_dataset  # Root path
 train: images/train
 val: images/val
 
-nc: 2  # Número de clases
+nc: 2  # Number of classes
 names: ['uninfected_rose', 'botrytis_rose']

@@ -21,25 +21,25 @@ export const FEATURES = (t) => [
 
 export const SECTIONS = (t) => [
   {
-    id: "que-es",
+    id: "what-is",
     title: t("sec.1.title"),
     titleComplete: t("sec.1.full"),
     content: t("sec.1.content"),
   },
   {
-    id: "modelo-ia",
+    id: "ai-model",
     title: t("sec.2.title"),
     titleComplete: t("sec.2.full"),
     content: t("sec.2.content"),
   },
   {
-    id: "rigor-datos",
+    id: "data-rigor",
     title: t("sec.3.title"),
     titleComplete: t("sec.3.full"),
     content: t("sec.3.content"),
   },
   {
-    id: "impacto-real",
+    id: "real-impact",
     title: t("sec.4.title"),
     titleComplete: t("sec.4.full"),
     content: t("sec.4.content"),

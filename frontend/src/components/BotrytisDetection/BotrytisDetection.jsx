@@ -39,10 +39,10 @@ function BotrytisDetection() {
     setError(null);
     
     try {
-      // El servicio ya devuelve la confianza correcta para sanas e infectadas
+      // The service already returns the correct confidence for healthy and infected
       const data = await botrytisService.predictImage(selectedImage);
       
-      // Manejo de caso: No se detectó ninguna flor
+      // Case handling: No flower detected
       if (data && data.found_flower === false) {
         setError(t("botrytis.detection.error_detection"));
         return;
@@ -168,11 +168,11 @@ function BotrytisDetection() {
                     <div
                       className="confidence-fill"
                       style={{
-                        // Ahora mostrará el % real incluso si es sana (verde)
+                        // Now displays the real percentage even if healthy (green)
                         width: `${result.confidence * 100}%`,
                         backgroundColor: result.has_botrytis
-                          ? "#e74c3c" // Rojo
-                          : "#27ae60", // Verde
+                          ? "#e74c3c" // Red
+                          : "#27ae60", // Green
                       }}
                     ></div>
                   </div>
@@ -247,7 +247,7 @@ function BotrytisDetection() {
           <a
             className="button is-text text-color has-text-weight-semibold mt-3"
             href="/"
-            aria-label="Enlace a la información del proyecto"
+            aria-label="Link to project information"
           >
             <span className="icon">
               <i className="fa-solid fa-arrow-left"></i>
