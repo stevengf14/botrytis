@@ -50,7 +50,3 @@ npm start
 curl -F "file=@C:\path\to\image.jpg" http://localhost:8000/analyze
 ```
 
-Contacto
--------
-Si quieres que deje el repo listo para `git push` en una rama `cleanup/minimal`,
-puedo preparar el commit y la instrucción para subirlo.
