@@ -246,7 +246,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  background: var(--bg-dark-panel);
   margin-bottom: 20px;
 }
 

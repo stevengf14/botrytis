@@ -15,7 +15,8 @@ function BotrytisDetection() {
 
   const isMobile = useIsMobile();
   const mobileCompensatedPadding = isMobile ? "4.25rem" : "3.25rem";
-  const [isCollapsed, setIsCollapsed] = useState(isMobile ? true : false);
+  const [isCollapsed, setIsCollapsed] = useState(isMobile); 
+
   const handleImageSelect = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -33,14 +34,20 @@ function BotrytisDetection() {
       setError(t("botrytis.detection.error_no_image"));
       return;
     }
+    
     setLoading(true);
     setError(null);
+    
     try {
+      // The service already returns the correct confidence for healthy and infected
       const data = await botrytisService.predictImage(selectedImage);
+      
+      // Case handling: No flower detected
       if (data && data.found_flower === false) {
         setError(t("botrytis.detection.error_detection"));
         return;
       }
+      
       setResult(data);
     } catch (err) {
       setError(err.message || t("botrytis.detection.error_processing_image"));
@@ -161,10 +168,11 @@ function BotrytisDetection() {
                     <div
                       className="confidence-fill"
                       style={{
+                        // Now displays the real percentage even if healthy (green)
                         width: `${result.confidence * 100}%`,
                         backgroundColor: result.has_botrytis
-                          ? "#e74c3c"
-                          : "#27ae60",
+                          ? "#e74c3c" // Red
+                          : "#27ae60", // Green
                       }}
                     ></div>
                   </div>
@@ -197,6 +205,7 @@ function BotrytisDetection() {
                 {t("botrytis.detection.clean")}
               </button>
             </div>
+            
             <div className="card">
               <div className="card-header text-background-color mt-6">
                 <p className="card-header-title has-text-white">
@@ -220,28 +229,12 @@ function BotrytisDetection() {
               {!isCollapsed && (
                 <div className="card-content">
                   <ul className="content">
-                    <li
-                      dangerouslySetInnerHTML={{
-                        __html: t("botrytis.detection.info_step1"),
-                      }}
-                    ></li>
-                    <li
-                      dangerouslySetInnerHTML={{
-                        __html: t("botrytis.detection.info_step2"),
-                      }}
-                    ></li>
-                    <li
-                      dangerouslySetInnerHTML={{
-                        __html: t("botrytis.detection.info_step3"),
-                      }}
-                    ></li>
+                    <li dangerouslySetInnerHTML={{ __html: t("botrytis.detection.info_step1") }}></li>
+                    <li dangerouslySetInnerHTML={{ __html: t("botrytis.detection.info_step2") }}></li>
+                    <li dangerouslySetInnerHTML={{ __html: t("botrytis.detection.info_step3") }}></li>
                   </ul>
-                  <div className="notification  mt-4">
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: t("botrytis.detection.info_step4"),
-                      }}
-                    />
+                  <div className="notification mt-4">
+                    <p dangerouslySetInnerHTML={{ __html: t("botrytis.detection.info_step4") }} />
                   </div>
                 </div>
               )}
@@ -250,11 +243,11 @@ function BotrytisDetection() {
         </div>
 
         <div className="has-text-centered pt-6">
-          <p className="has-text-grey-light">{t("home.return_msg")}  </p>
+          <p className="has-text-grey-light">{t("home.return_msg")} </p>
           <a
             className="button is-text text-color has-text-weight-semibold mt-3"
             href="/"
-            aria-label="Enlace a la información del proyecto"
+            aria-label="Link to project information"
           >
             <span className="icon">
               <i className="fa-solid fa-arrow-left"></i>

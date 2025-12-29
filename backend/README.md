@@ -1,68 +1,46 @@
 Backend (FastAPI) - Botrytis Detection
 =====================================
 
-Instrucciones básicas para ejecutar el microservicio de inferencia y el
-entrenamiento del modelo.
+Quick start
+-----------
 
-1) Entorno
-
-   - Crear un entorno virtual (recomendado `venv`) y activar.
-   - Instalar dependencias:
+1) Create and activate Python virtualenv, then install dependencies:
 
 ```powershell
-cd botrytis_project\backend
-python -m venv .venv; .\.venv\Scripts\Activate.ps1
+cd backend
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-2) Dataset
-
-   - Organizar imágenes en `botrytis_project/backend/data/` con estructura:
-
-```
-data/
-  train/
-    healthy/
-    botrytis/
-  val/
-    healthy/
-    botrytis/
-```
-
-3) Entrenamiento (esqueleto)
-
-   - Ejecutar entrenamiento de muestra:
+2) Run the API (development):
 
 ```powershell
-cd botrytis_project\backend\app
-python train.py --data-dir ../data --epochs 10 --batch-size 16 --out ../model.pth
-```
-
-4) Ejecutar API
-
-```powershell
-cd botrytis_project\backend\app
+cd backend\app
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-5) Endpoint
+3) Endpoint
 
-- `POST /predict` : subir archivo `file` (form) -> devuelve JSON:
+- `POST /analyze` — form field `file` (image) -> JSON response:
+
+Example response:
 
 ```json
 {
-  "has_botrytis": true,
-  "confidence": 0.87
+  "status": "infected",           
+  "message": "ALERT: Botrytis detected in the rose.",
+  "total_detections": 1,
+  "detections": [
+    {"box": [x1,y1,x2,y2], "label": "botrytis_rose", "confidence": 0.87, "is_infected": true}
+  ]
 }
 ```
 
-Respuesta:
-- `has_botrytis` (boolean): `true` si detecta Botrytis, `false` si está sano
-- `confidence` (float): valor de 0.0 a 1.0 indicando la confiabilidad de la predicción
+Notes
+-----
+- Model path: `backend/model/best.pt`. The API attempts to load this file at startup.
+- CORS is enabled for development (`*`).
+- If you need a lightweight test mode without `torch`, use the training workspace tools or a mock wrapper.
 
-Notas:
-- `torch` puede ser pesado; si no desea instalarlo en el entorno de inferencia,
-  puede usar el `ModelWrapper` en `model.py` que funciona en modo "dummy" basado
-  en brillo hasta que cargue un modelo real.
-- El heurístico dummy es solo para pruebas tempranas; reemplazar con modelo
-  entrenado después de recolectar dataset.
+If you want, I can add a minimal `test_api.py` script to automate a quick POST test.

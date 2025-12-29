@@ -58,14 +58,13 @@ export const es = {
   "botrytis.detection.analyzing_image":"Analizando imagen...",
   "botrytis.detection.clean": "Limpiar",
   "botrytis.detection.has_botrytis": "Botrytis Detectada",
-  "botrytis.detection.no_botrytis": "Rosa Sana",
-  "botrytis.detection.confidence": "Confiabilidad:",
+  "botrytis.detection.no_botrytis": "Libre de Botrytis", 
+  "botrytis.detection.confidence": "Certeza del Diagnóstico:",
   "botrytis.detection.error_no_image": "Por favor selecciona una imagen",
-  "botrytis.detection.error_detection": "No se ha detectado una flor en la imagen. Por favor sube otra imagen que contenga la flor claramente.",
+  "botrytis.detection.error_detection": "No se detectó ninguna flor. Por favor sube una imagen donde la rosa sea claramente visible.",
   "botrytis.detection.error_processing_image": "Error al procesar la imagen",
   "botrytis.detection.result_message_botrytis": "Se ha detectado Botrytis en la rosa. Recomendamos aplicar fungicida y aislar el espécimen afectado.",
-  "botrytis.detection.result_message_no_botrytis": "La rosa parece estar en buen estado. Continúa con el monitoreo regular.",
-  
+  "botrytis.detection.result_message_no_botrytis": "El análisis no encontró patrones visuales de Botrytis en esta muestra. Continúa el monitoreo.",
   "botrytis.detection.info_title": "Información del Modelo de IA",
   "botrytis.detection.info_step1": "Carga una imagen desde tu dispositivo.",
   "botrytis.detection.info_step2": "Da click en <strong>\"Analizar imagen\"</strong> para iniciar la detección.",
@@ -74,6 +73,4 @@ export const es = {
 
   "info.github_text": "Para un análisis detallado de la arquitectura del modelo, acceso al código fuente y documentación técnica adicional, puede consultar el repositorio oficial del proyecto en GitHub.",
   "info.github_link": "Explorar Repositorio en GitHub"
-  
 };
-

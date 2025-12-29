@@ -12,7 +12,7 @@ const BotrytisHome = () => {
       <figure className="image is-5by4">
         <img
           src={homeImage}
-          alt="Rosa con Botrytis analizada por IA"
+          alt="Rose with Botrytis analyzed by AI"
           style={{
             borderRadius: "10px",
             objectFit: "cover",
@@ -22,7 +22,6 @@ const BotrytisHome = () => {
       </figure>
     </div>
   );
-  console.log(t("home.title"));
 
   return (
     <section
@@ -56,7 +55,7 @@ const BotrytisHome = () => {
               <a
                 className="button is-medium is-info is-rounded has-text-weight-bold is-light"
                 href="/botrytis-detection"
-                aria-label="Comenzar Análisis Ahora"
+                aria-label="Start Analysis Now"
               >
                 <span className="icon is-medium">
                   <i className="fa-solid fa-cloud-arrow-up"></i>
@@ -113,7 +112,7 @@ const BotrytisHome = () => {
           <a
             className="button is-text has-text-weight-semibold mt-3 text-color"
             href="/information"
-            aria-label="Enlace a la información del proyecto"
+            aria-label="Link to project information"
           >
             <span className="icon">
               <i className="fa-solid fa-arrow-right"></i>

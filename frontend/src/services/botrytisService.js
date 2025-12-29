@@ -1,26 +1,6 @@
-/**
- * Servicio para comunicarse con el backend de detección de Botrytis.
- *
- * Endpoint: POST /analyze
- * Backend (FastAPI) response example:
- * {
- *   status: "infected" | "healthy" | "no_flower_detected",
- *   message: string,
- *   total_detections: number,
- *   detections: [ { box: [...], label: string, confidence: number, is_infected: boolean } ]
- * }
- */
-
-// TODO: Ajustar la URL base según el entorno (desarrollo/producción)
-const API_BASE_URL =
-  process.env.REACT_APP_BOTRYTIS_API_URL || "http://localhost:8000";
+const API_BASE_URL = process.env.REACT_APP_BOTRYTIS_API_URL || "http://localhost:8000";
 
 export const botrytisService = {
-  /**
-   * Envía una imagen al endpoint /predict del backend.
-   * @param {File} file - Archivo de imagen a analizar
-   * @returns {Promise<{has_botrytis: boolean, confidence: number}>}
-   */
   async predictImage(file) {
     const formData = new FormData();
     formData.append("file", file);
@@ -33,37 +13,51 @@ export const botrytisService = {
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.detail || "Error predicting image");
+        throw new Error(error.detail || "Error processing image");
       }
 
       const data = await response.json();
 
-      if (data.hasOwnProperty("has_botrytis")) {
-        return { ...data, found_flower: data.found_flower ?? null };
-      }
-
       const detections = Array.isArray(data.detections) ? data.detections : [];
-      const found_flower = (data.total_detections ?? detections.length) > 0;
+      const found_flower = data.status !== "no_flower_detected" && (data.total_detections > 0 || detections.length > 0);
 
       let has_botrytis = false;
-      let confidence = 0;
+      let maxConfidenceInfected = 0;
+      let maxConfidenceHealthy = 0;
+
       detections.forEach((d) => {
         const label = d.label || "";
-        const isInf =
-          d.is_infected === true || label.toLowerCase().includes("botrytis");
-        if (isInf) {
+        const conf = Number(d.confidence) || 0;
+        const isInfected = d.is_infected === true || label.toLowerCase().includes("botrytis");
+
+        if (isInfected) {
           has_botrytis = true;
-          confidence = Math.max(confidence, Number(d.confidence) || 0);
+          maxConfidenceInfected = Math.max(maxConfidenceInfected, conf);
+        } else {
+          maxConfidenceHealthy = Math.max(maxConfidenceHealthy, conf);
         }
       });
-
-      if (!has_botrytis && typeof data.status === "string") {
-        has_botrytis = data.status === "infected";
+      // Final confirmation using global status if needed
+      if (!has_botrytis && data.status === "infected") {
+        has_botrytis = true;
+      }
+      // Final confidence selection
+      let finalConfidence = 0;
+      
+      if (has_botrytis) {
+        finalConfidence = maxConfidenceInfected;
+      } else if (found_flower) {
+        finalConfidence = maxConfidenceHealthy;
       }
 
-      return { has_botrytis, confidence, found_flower };
+      return { 
+        has_botrytis, 
+        confidence: finalConfidence, 
+        found_flower 
+      };
+
     } catch (error) {
-      console.error("Error calling botrytis prediction API:", error);
+      console.error("Error calling prediction service:", error);
       throw error;
     }
   },
