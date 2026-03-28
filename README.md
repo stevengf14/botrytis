@@ -58,12 +58,12 @@ The model was trained using a custom dataset annotated via Roboflow. Below are e
 ### Image Annotation (Roboflow)
 | Uninfected Rose | Botrytis Rose |
 | :---: | :---: |
-| <img src="assets/uninfected_rose.png" width="300" alt="Uninfected Rose Annotation"> | <img src="assets/botrytis_rose.png" width="300" alt="Botrytis Rose Annotation"> |
+| <img src="assets/uninfected_ui.png" width="300" alt="Uninfected Rose Annotation"> | <img src="assets/botrytis_rose.png" width="300" alt="Botrytis Rose Annotation"> |
 
 ### Training Metrics (YOLOv8)
 The model achieved a high confidence rate across multiple validation metrics:
 <div align="center">
-  <img src="assets/training_metrics.png" width="700" alt="Training Convergence Metrics">
+  <img src="assets/metrics_ui.png" width="700" alt="Training Convergence Metrics">
 </div>
 
 ---

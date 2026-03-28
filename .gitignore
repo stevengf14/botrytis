@@ -39,6 +39,7 @@ data/
 *.jpg
 *.jpeg
 *.png
+!assets/*.png
 *.gif
 *.zip
 
