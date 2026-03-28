@@ -154,8 +154,8 @@ If you wish to retrain the YOLOv8 model with new data:
 
 ## 👥 Authors / Team Members
 
-- **Steven Andrés Guamán Figueroa**
-- **Jonathan Santiago Almeida Salas**
+- **Steven Andrés Guamán Figueroa** - [LinkedIn](https://www.linkedin.com/in/stevengf14/)
+- **Jonathan Santiago Almeida Salas** - [LinkedIn](https://www.linkedin.com/in/jonathan-almeida-salas-1389b6187/)
 
 ---
 *Developed as a Thesis Project for Universidad Internacional del Ecuador (UIDE), now expanded into an open source portfolio project.*
