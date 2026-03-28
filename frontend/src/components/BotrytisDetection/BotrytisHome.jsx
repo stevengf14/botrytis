@@ -1,5 +1,5 @@
 import { FEATURES } from "../../utils/Constants";
-import homeImage from "../../utils/images/botrytis_home_image.webp";
+import homeImage from "../../utils/images/hero_ai.png";
 import useIsMobile from "../../services/hooks/useIsMobile";
 import { useLanguage } from "../../services/hooks/LanguageContext";
 

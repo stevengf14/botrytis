@@ -5,7 +5,7 @@ import { en } from "../../utils/Messages_en";
 const LanguageContext = createContext(undefined);
 
 export const LanguageProvider = ({ children }) => {
-  const [locale, setLocale] = useState("es");
+  const [locale, setLocale] = useState("en");
   const messages = locale === "es" ? es : en;
 
   const value = useMemo(

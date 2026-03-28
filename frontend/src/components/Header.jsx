@@ -6,7 +6,7 @@ import { flagEC, flagUS } from "../utils/Constants";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
-  const [language, setLanguage] = useState("es");
+  const [language, setLanguage] = useState("en");
   const isMobile = useIsMobile();
 
   const { t, setLocale } = useLanguage();

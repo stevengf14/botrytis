@@ -44,7 +44,6 @@ data/
 
 # Modelos entrenados (muy pesados, considerar usar Git LFS)
 *.pth
-*.pt
 *.pkl
 *.h5
 
@@ -62,3 +61,5 @@ Thumbs.db
 
 */dataset
 node_modules/
+training_workspace/best_old.pt
+backend/model/best_old.pt
