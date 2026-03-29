@@ -1,33 +1,30 @@
-Training workspace - Botrytis Detection
-=======================================
+# 🧠 Botrytis Detection - Training Workspace
 
-This folder contains utilities and scripts to prepare the dataset and train YOLO models.
+Utilities and scripts to prepare the YOLO image dataset and train the YOLOv8 object detection model for Botrytis cinerea.
 
-Quick start
------------
+## 🚀 Quick Start
 
-1) Prepare environment (recommended: same Python venv used for backend):
+1. **Prepare Environment**
+   It's recommended to use the same Python environment as the backend:
+   ```powershell
+   cd training_workspace
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r ../backend/requirements.txt
+   ```
 
-```powershell
-cd training_workspace
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r ../backend/requirements.txt
-```
+2. **Dataset Preparation**
+   Execute the dataset distribution script to automatically generate `data.yaml` and the corresponding 80/20 train/validation splits.
+   ```powershell
+   python train_yolo.py
+   ```
 
-2) Repair dataset and generate data.yaml (script):
+3. **Training**
+   - The `train_yolo.py` script utilizes `ultralytics.YOLO` (`yolov8m.pt`).
+   - Trained model weights are subsequently output to the `runs/detect/` folder.
 
-```powershell
-cd training_workspace
-python train_yolo.py
-```
+## 📝 Colab GPU Automation
+- For faster GPU acceleration during training epochs, use the provided `train_yolo_colab.ipynb` notebook directly on Google Colab.
 
-3) Training
-
-- The `train_yolo.py` script uses `ultralytics.YOLO` and expects `yolov8m.pt` in the folder or available by name.
-- Trained weights will be saved in `runs/detect` by default.
-
-Notes
------
-- Prints and logs in these scripts are concise and in English. Comments in the code may be in Spanish.
-- Use the notebook `train_yolo_colab_new.ipynb` if you prefer to run on Colab (GPU).
+---
+**Authors:** Steven Andrés Guamán Figueroa & Jonathan Santiago Almeida Salas

@@ -1,7 +1,8 @@
 {
   "name": "botrytis_project",
   "version": "1.0.0",
-  "description": "",
+  "description": "Botrytis Detection Frontend",
+  "author": "Steven Andrés Guamán Figueroa & Jonathan Santiago Almeida Salas",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {

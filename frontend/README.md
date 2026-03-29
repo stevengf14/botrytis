@@ -1,24 +1,25 @@
-Frontend Integration - Botrytis Detection
-=========================================
+# 💻 Botrytis Detection - Frontend UI
 
-Quick start
------------
+This directory contains the React.js frontend for the Botrytis Detection System, featuring a responsive dark-mode architecture.
 
-1) Install and run the frontend:
+## 🚀 Quick Start
 
-```powershell
-cd frontend
-npm install   # first time only
-npm start
-```
+1. **Install Dependencies**
+   ```powershell
+   cd frontend
+   npm install
+   ```
 
-2) Open in browser:
+2. **Run the Application**
+   ```powershell
+   npm start
+   ```
 
-- http://localhost:3000/
+3. Open your browser at `http://localhost:3000/`
 
-Configuration
--------------
-- The frontend expects the backend API at `REACT_APP_BOTRYTIS_API_URL` (env var). Default: `http://localhost:8000`.
-- The frontend calls `POST /analyze` with form field `file` and maps the response into `{ has_botrytis, confidence, found_flower }` for the UI.
+## ⚙️ Configuration
+- The frontend expects the backend API at `REACT_APP_BOTRYTIS_API_URL` (or defaults to `http://localhost:8000` via Axios config).
+- The web app posts image blobs to the `/analyze` endpoint and renders the resulting bounding boxes onto a canvas overlap.
 
-If you want me to include a simple e2e test script that posts a sample image to the backend, I can add it.
+---
+**Authors:** Steven Andrés Guamán Figueroa & Jonathan Santiago Almeida Salas
