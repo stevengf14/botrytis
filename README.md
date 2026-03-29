@@ -2,7 +2,7 @@
   <!-- TODO: Replace with your own banner if desired -->
   <img src="assets/botrytis_banner.png" alt="Project Banner" style="width: 100%; max-width: 800px;">
 
-  # 🌹 Botrytis Detection System
+  # Botrytis Detection System
   
   **An AI-powered computer vision system for real-time detection of Botrytis cinerea in roses.**
 
@@ -14,7 +14,7 @@
 
 <br />
 
-## 📖 About The Project
+## About The Project
 
 This project was developed as a Computer Science Thesis at Universidad Internacional del Ecuador (UIDE) and has evolved into a robust showcase of full-stack AI integration. 
 
@@ -22,7 +22,7 @@ It tackles a "first-order phytosanitary threat" in the floriculture sector: *Bot
 
 Our solution provides a **full-stack web application** integrated with a **Deep Learning computer vision model** to automatically analyze images of roses and detect early signs of Botrytis infection. This automates the diagnostic process, providing farmers and agricultural engineers with a constant surveillance tool that protects their investment.
 
-### ✨ Key Features
+### Key Features
 
 - **Real-Time Analysis**: Upload images of roses and get immediate inference results.
 - **High Accuracy Detection**: Powered by a custom-trained Ultralytics YOLOv8 medium model.
@@ -31,7 +31,7 @@ Our solution provides a **full-stack web application** integrated with a **Deep 
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## Architecture & Tech Stack
 
 ### Frontend
 - **Framework**: [React.js](https://reactjs.org/)
@@ -51,7 +51,7 @@ Our solution provides a **full-stack web application** integrated with a **Deep 
 
 ---
 
-## 📸 Dataset & Model Training
+## Dataset & Model Training
 
 The model was trained using a custom dataset annotated via Roboflow. Below are examples of the annotations and the progression of the model's learning phase during training.
 
@@ -68,7 +68,7 @@ The model achieved a high confidence rate across multiple validation metrics:
 
 ---
 
-## 🖥️ Application UI & Demo
+## Application UI & Demo
 
 Our platform provides an intuitive and responsive dark-mode interface for both learning and real-time detection.
 
@@ -84,7 +84,7 @@ Our platform provides an intuitive and responsive dark-mode interface for both l
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these instructions to set up the project locally.
 
@@ -137,7 +137,7 @@ Follow these instructions to set up the project locally.
 
 ---
 
-## 🧠 Model Training (Optional)
+## Model Training (Optional)
 
 If you wish to retrain the YOLOv8 model with new data:
 
@@ -152,7 +152,7 @@ If you wish to retrain the YOLOv8 model with new data:
 
 ---
 
-## 👥 Authors / Team Members
+## Authors / Team Members
 
 - **Steven Andrés Guamán Figueroa** - [LinkedIn](https://www.linkedin.com/in/stevengf14/)
 - **Jonathan Santiago Almeida Salas** - [LinkedIn](https://www.linkedin.com/in/jonathan-almeida-salas-1389b6187/)
